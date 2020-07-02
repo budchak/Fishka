@@ -7,20 +7,15 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayout
 import com.yaroshevich.fishka.R
+import com.yaroshevich.fishka.base.BaseFragment
 import com.yaroshevich.fishka.equipment.viewPagerAdapter.EquipmentPagerAdapter
 import kotlinx.android.synthetic.main.fragment_equipment.*
 import kotlinx.android.synthetic.main.fragment_equipment.view.*
 
-class EquipmentFragment : Fragment() {
+class EquipmentFragment : BaseFragment() {
 
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_equipment, container, false)
-    }
+    override fun getLayout() = R.layout.fragment_equipment
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

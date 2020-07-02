@@ -12,6 +12,7 @@ import com.yaroshevich.fishka.equipment.rods.RodsFragment
 class EquipmentPagerAdapter(fragmentManager: FragmentManager, var countTab: Int): FragmentPagerAdapter(fragmentManager, countTab) {
 
 
+
     override fun getItem(position: Int): Fragment =
       when(position){
           0 -> RodsFragment()

@@ -2,25 +2,28 @@ package com.yaroshevich.fishka.equipment.reels
 
 import android.os.Bundle
 import android.view.View
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.yaroshevich.fishka.R
-import com.yaroshevich.fishka.base.BaseFragment
+import androidx.fragment.app.Fragment
+import com.yaroshevich.fishka.equipment.EmptyListFragment
+import com.yaroshevich.fishka.equipment.FragmentEquipmentType
+import com.yaroshevich.fishka.equipment.RecyclerViewFragment
 import com.yaroshevich.fishka.equipment.reels.model.Reel
-import com.yaroshevich.fishka.equipment.rods.Rod
-import com.yaroshevich.fishka.equipment.rods.RodsAdapter
-import com.yaroshevich.fishka.equipment.rods.Test
-import kotlinx.android.synthetic.main.fragment_reels.*
-import kotlinx.android.synthetic.main.fragment_rods.view.*
 
-class ReelsFragment: BaseFragment() {
+class ReelsFragment : FragmentEquipmentType() {
 
-    override fun getLayout(): Int = R.layout.fragment_reels
+    val list = mutableListOf<Reel>()
+    val reeAdapter = ReelAdapter()
+
+    override fun getFragment(): Fragment {
+        return when (list.size) {
+            0 -> EmptyListFragment()
+            else -> RecyclerViewFragment(reeAdapter)
+        }
+    }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val list = mutableListOf<Reel>()
+
         list.add(Reel("tosiba", "5000", 210))
         list.add(Reel("tosiba", "5000", 210))
         list.add(Reel("tosiba", "5000", 210))
@@ -30,15 +33,8 @@ class ReelsFragment: BaseFragment() {
         list.add(Reel("tosiba", "5000", 210))
         list.add(Reel("tosiba", "5000", 210))
 
-        val reeAdapter = ReelAdapter()
+
         reeAdapter.items = list
-        view.apply {
-            recycler_view.apply {
-                layoutManager = LinearLayoutManager(this@apply.context)
-                adapter = reeAdapter
-                addItemDecoration(DividerItemDecoration(this@apply.context, 1))
-            }
-
-        }
+        reeAdapter.notifyDataSetChanged()
     }
 }

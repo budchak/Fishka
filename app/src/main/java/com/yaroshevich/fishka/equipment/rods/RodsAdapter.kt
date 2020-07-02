@@ -1,15 +1,14 @@
 package com.yaroshevich.fishka.equipment.rods
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
+import androidx.databinding.DataBindingUtil
 import com.yaroshevich.fishka.R
 import com.yaroshevich.fishka.base.BaseAdapter
 import com.yaroshevich.fishka.base.BaseViewHolder
 import com.yaroshevich.fishka.base.ViewHolderFactory
-import kotlinx.android.synthetic.main.item_rod.view.*
+import com.yaroshevich.fishka.databinding.ItemRodBinding
 
 class RodsAdapter: BaseAdapter<Rod>() {
     override fun createViewHolderFactory(): ViewHolderFactory<Rod> {
@@ -22,17 +21,13 @@ class RodsAdapter: BaseAdapter<Rod>() {
 
 class RodsViewHolder(view: View): BaseViewHolder<Rod>(view){
 
+    val binding = DataBindingUtil.bind<ItemRodBinding>(view)
 
-    override fun bind(rod: Rod){
-        itemView.apply {
-            brand_text_view.text = rod.brand
-            model_text_view.text = rod.model
-            lenght_text_view.text = rod.height.toString()
+    override fun bind(item: Rod){
 
-            val min = rod.test.min
-            val max = rod.test.max
-            test_text_view.text = "${min.toString()} - ${max.toString()}"
-        }
+        binding?.rod = item
+
+
     }
 }
 
