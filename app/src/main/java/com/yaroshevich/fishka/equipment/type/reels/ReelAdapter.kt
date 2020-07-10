@@ -1,4 +1,4 @@
-package com.yaroshevich.fishka.equipment.reels
+package com.yaroshevich.fishka.equipment.type.reels
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,8 +7,7 @@ import com.yaroshevich.fishka.R
 import com.yaroshevich.fishka.base.BaseAdapter
 import com.yaroshevich.fishka.base.BaseViewHolder
 import com.yaroshevich.fishka.base.ViewHolderFactory
-import com.yaroshevich.fishka.equipment.reels.model.Reel
-import com.yaroshevich.fishka.equipment.rods.RodsViewHolder
+import com.yaroshevich.fishka.equipment.type.reels.model.Reel
 
 class ReelAdapter: BaseAdapter<Reel>() {
     override fun createViewHolderFactory(): ViewHolderFactory<Reel> {

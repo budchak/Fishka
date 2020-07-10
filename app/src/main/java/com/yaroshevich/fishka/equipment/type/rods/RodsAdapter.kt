@@ -1,4 +1,4 @@
-package com.yaroshevich.fishka.equipment.rods
+package com.yaroshevich.fishka.equipment.type.rods
 
 import android.view.LayoutInflater
 import android.view.View

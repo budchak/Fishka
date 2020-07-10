@@ -1,4 +1,4 @@
-package com.yaroshevich.fishka.equipment.baits
+package com.yaroshevich.fishka.equipment.type.baits
 
 import com.yaroshevich.fishka.R
 import com.yaroshevich.fishka.base.BaseFragment

@@ -1,4 +1,4 @@
-package com.yaroshevich.fishka.equipment.line
+package com.yaroshevich.fishka.equipment.type.line
 
 import com.yaroshevich.fishka.R
 import com.yaroshevich.fishka.base.BaseFragment

@@ -9,6 +9,14 @@
         android:label="MainFragment" />
     <fragment
         android:id="@+id/equipmentFragment"
-        android:name="com.yaroshevich.fishka.equipment.EquipmentFragment"
-        android:label="EquipmentFragment" />
+        android:name="com.yaroshevich.fishka.equipment.EquipmentTypeSwitchFragment"
+        android:label="EquipmentFragment" >
+        <action
+            android:id="@+id/action_equipmentFragment_to_createRodFragment"
+            app:destination="@id/createRodFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createRodFragment"
+        android:name="com.yaroshevich.fishka.equipment.create.CreateRodFragment"
+        android:label="CreateRodFragment" />
 </navigation>

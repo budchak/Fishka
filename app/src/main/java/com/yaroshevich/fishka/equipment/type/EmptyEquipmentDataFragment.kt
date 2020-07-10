@@ -1,12 +1,13 @@
-package com.yaroshevich.fishka.equipment
+package com.yaroshevich.fishka.equipment.type
 
 import android.os.Bundle
 import android.view.View
 import com.yaroshevich.fishka.R
 import com.yaroshevich.fishka.base.BaseFragment
-import com.yaroshevich.fishka.equipment.rods.RodViewModel
+import com.yaroshevich.fishka.equipment.type.EmptyEquipmentViewModel
+import kotlinx.android.synthetic.main.fragment_if_empty_equipment_recycler_view.*
 
-class EmptyListFragment( val viewModel: RodViewModel): BaseFragment() {
+class EmptyEquipmentDataFragment(val viewModel: EmptyEquipmentViewModel): BaseFragment() {
 
 
 
@@ -18,7 +19,9 @@ class EmptyListFragment( val viewModel: RodViewModel): BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.update()
+        add_button.setOnClickListener {
+            viewModel.onClick()
+        }
 
     }
 }

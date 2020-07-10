@@ -5,7 +5,7 @@
     <data>
         <variable
             name="rod"
-            type="com.yaroshevich.fishka.equipment.rods.Rod" />
+            type="com.yaroshevich.fishka.equipment.type.rods.Rod" />
     </data>
 
     <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
