@@ -1,19 +1,27 @@
 package com.yaroshevich.fishka
 
 import android.app.Application
+import androidx.room.Room
 import com.yaroshevich.fishka.equipment.type.rods.Rod
 import com.yaroshevich.fishka.navigation.AppNavigator
+import com.yaroshevich.fishka.room.EquipmentDatabase
 
 class App : Application() {
 
     lateinit var appNavigator: AppNavigator
 
-    val rods = mutableListOf<Rod>()
-
+    lateinit var database: EquipmentDatabase
 
     override fun onCreate() {
         super.onCreate()
+
+        database =
+            Room.databaseBuilder(applicationContext, EquipmentDatabase::class.java, "database")
+                .build()
+
         setInstance(this)
+
+
     }
 
     companion object {
@@ -23,7 +31,7 @@ class App : Application() {
             this.app = app
         }
 
-            fun getInstance() = app
+        fun getInstance() = app
     }
 
 }

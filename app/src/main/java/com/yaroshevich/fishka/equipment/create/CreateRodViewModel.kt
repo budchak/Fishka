@@ -6,10 +6,13 @@ import com.yaroshevich.fishka.App
 import com.yaroshevich.fishka.equipment.type.rods.Rod
 import com.yaroshevich.fishka.equipment.type.rods.Test
 import com.yaroshevich.fishka.navigation.Destination
+import com.yaroshevich.fishka.repository.RodRepository
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class CreateRodViewModel : ViewModel() {
 
-    val rod = Rod()
+    val rodRepository = RodRepository()
 
     var brand = ""
     var model = ""
@@ -23,7 +26,9 @@ class CreateRodViewModel : ViewModel() {
             "CreateViewModel",
             "brand = $brand model = $model length = $length test: min $minTest max = $maxTest"
         )
+
         saveRod()
+
         App.getInstance().appNavigator.navigate(Destination.ROD_SCREEN)
 
 
@@ -32,7 +37,10 @@ class CreateRodViewModel : ViewModel() {
 
     private fun saveRod() {
         val rod = createRod()
-        App.getInstance().rods.add(rod)
+        GlobalScope.launch {
+            rodRepository.create(rod)
+        }
+
     }
 
     private fun createRod() = Rod(

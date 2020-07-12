@@ -16,7 +16,7 @@ abstract class FragmentEquipmentType : BaseFragment() {
 
     override fun getLayout(): Int = R.layout.fragment_equipment_type_container
 
-    abstract fun get(fragmentType: Int): Fragment
+    abstract fun get(fragmentType: FragmentType): Fragment
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -31,9 +31,13 @@ abstract class FragmentEquipmentType : BaseFragment() {
         })
 
 
-
     }
 }
 
+enum class FragmentType{
+    LOADING,
+    EMPTY,
+    REGULAR
+}
 
 

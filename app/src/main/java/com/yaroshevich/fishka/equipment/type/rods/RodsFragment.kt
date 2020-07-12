@@ -6,9 +6,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.yaroshevich.fishka.App
-import com.yaroshevich.fishka.equipment.type.EmptyEquipmentDataFragment
-import com.yaroshevich.fishka.equipment.type.FragmentEquipmentType
-import com.yaroshevich.fishka.equipment.type.RecyclerViewFragment
+import com.yaroshevich.fishka.equipment.type.*
+import com.yaroshevich.fishka.repository.RodRepository
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class RodsFragment: FragmentEquipmentType() {
 
@@ -20,14 +21,16 @@ class RodsFragment: FragmentEquipmentType() {
     val rodsAdapter = RodsAdapter()
 
 
-    override fun get(fragmentType: Int): Fragment {
+    override fun get(fragmentType: FragmentType): Fragment {
        return when(fragmentType){
-           0 -> EmptyEquipmentDataFragment(
+           FragmentType.EMPTY -> EmptyEquipmentDataFragment(
                emptyRodViewModel
            )
-           else -> RecyclerViewFragment(
+           FragmentType.REGULAR -> RecyclerViewFragment(
                rodsAdapter, rodViewModel
            )
+
+           FragmentType.LOADING -> LoadingFragment()
        }
     }
 
@@ -38,18 +41,18 @@ class RodsFragment: FragmentEquipmentType() {
         rodViewModel = ViewModelProvider(this).get(RodViewModel::class.java)
 
         typeViewModel = rodViewModel
-
         emptyRodViewModel.typeViewModel = typeViewModel
 
-        rodsAdapter.items = App.getInstance().rods
+
         rodsAdapter.notifyDataSetChanged()
 
         super.onViewCreated(view, savedInstanceState)
 
-        emptyRodViewModel.liveRods.observe(viewLifecycleOwner, Observer {
+        rodViewModel.rodLiveList.observe(viewLifecycleOwner, Observer {
             rodsAdapter.items = it
             rodsAdapter.notifyDataSetChanged()
         })
     }
+
 
 }

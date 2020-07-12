@@ -6,10 +6,10 @@ import androidx.lifecycle.ViewModel
 open class EquipmentTypeViewModel : ViewModel() {
 
 
-    var fragmentType = MutableLiveData<Int>(0)
+    var fragmentType = MutableLiveData<FragmentType>(FragmentType.LOADING)
 
 
-    fun get(viewType: Int) {
+   open fun get(viewType: FragmentType) {
 
     }
 
@@ -17,3 +17,4 @@ open class EquipmentTypeViewModel : ViewModel() {
 
     }
 }
+

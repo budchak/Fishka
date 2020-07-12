@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.yaroshevich.fishka.equipment.type.EmptyEquipmentDataFragment
 import com.yaroshevich.fishka.equipment.type.FragmentEquipmentType
+import com.yaroshevich.fishka.equipment.type.FragmentType
 import com.yaroshevich.fishka.equipment.type.RecyclerViewFragment
 import com.yaroshevich.fishka.equipment.type.reels.model.Reel
 import com.yaroshevich.fishka.equipment.type.rods.EmptyRodViewModel
@@ -19,9 +20,9 @@ class ReelsFragment : FragmentEquipmentType() {
     lateinit var emptyReelViewModel: EmptyReelsViewModel
     lateinit var reelViewModel: ReelsViewModel
 
-    override fun get(fragmentType: Int): Fragment {
+    override fun get(fragmentType: FragmentType): Fragment {
         return when (typeViewModel.fragmentType.value) {
-            0 -> EmptyEquipmentDataFragment(
+           FragmentType.EMPTY-> EmptyEquipmentDataFragment(
                 emptyReelViewModel
             )
             else -> RecyclerViewFragment<Reel>(
