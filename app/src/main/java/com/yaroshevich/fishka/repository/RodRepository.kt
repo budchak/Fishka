@@ -12,10 +12,7 @@ class RodRepository() {
 
     suspend fun getAll(): List<Rod> {
         val rodEntityList = rodDao.getAll()
-        val nulls = arrayOfNulls<Int>(100000)
-        nulls.forEach {
-            print("sssd")
-        }
+
         val result = RodEntityToRodConverter().convert(rodEntityList)
 
         return result

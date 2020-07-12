@@ -9,17 +9,17 @@ import com.yaroshevich.fishka.room.entities.LineEntity
 interface LineDao {
 
     @Query("SELECT * FROM line")
-    fun getAll():List<LineEntity>
+    suspend fun getAll():List<LineEntity>
 
     @Query("SELECT * FROM line WHERE id = :id")
-    fun getById(id: Int): LineEntity
+    suspend  fun getById(id: Int): LineEntity
 
     @Insert
-    fun insert(panel: LineEntity)
+    suspend fun insert(panel: LineEntity)
 
     @Update
-    fun update(panel: LineEntity)
+    suspend  fun update(panel: LineEntity)
 
     @Delete
-    fun delete(panel: LineEntity)
+    suspend  fun delete(panel: LineEntity)
 }

@@ -12,9 +12,13 @@ import com.yaroshevich.fishka.room.entities.ReelEntity
 import com.yaroshevich.fishka.room.entities.RodEntity
 
 @Database(
-    entities = [RodEntity::class],
+    entities = [RodEntity::class, ReelEntity::class, LineEntity::class, BaitEntity::class],
     version = 1
 )
 abstract class EquipmentDatabase : RoomDatabase() {
     abstract fun rodDao(): RodDao
+    abstract fun reelDao(): ReelDao
+    abstract fun lineDao(): LineDao
+    abstract fun baitDao(): BaitDao
+
 }
