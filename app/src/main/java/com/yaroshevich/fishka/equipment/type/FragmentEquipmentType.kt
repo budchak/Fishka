@@ -8,15 +8,16 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.yaroshevich.fishka.R
 import com.yaroshevich.fishka.base.BaseFragment
+import com.yaroshevich.fishka.equipment.type.base.EquipmentTypeViewModel
 
-abstract class FragmentEquipmentType : BaseFragment() {
+abstract class FragmentEquipmentType() : BaseFragment() {
 
     lateinit var typeViewModel: EquipmentTypeViewModel
 
+    var equipmentFactory: EquipmentFactory? = null
 
     override fun getLayout(): Int = R.layout.fragment_equipment_type_container
 
-    abstract fun get(fragmentType: FragmentType): Fragment
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -27,14 +28,28 @@ abstract class FragmentEquipmentType : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         typeViewModel.fragmentType.observe(viewLifecycleOwner, Observer {
-            childFragmentManager.beginTransaction().replace(R.id.container, get(it)).commit()
+            val fragment = equipmentFactory?.create(it)
+            if (fragment!= null){
+
+                childFragmentManager.
+                beginTransaction().
+                replace(R.id.container, fragment).
+                commit()
+
+            }
+
         })
 
 
     }
 }
 
-enum class FragmentType{
+
+abstract class EquipmentFactory {
+    abstract fun create(id: FragmentType): Fragment
+}
+
+enum class FragmentType {
     LOADING,
     EMPTY,
     REGULAR

@@ -5,46 +5,28 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.yaroshevich.fishka.App
+import com.yaroshevich.fishka.BR
 import com.yaroshevich.fishka.equipment.type.*
-import com.yaroshevich.fishka.repository.RodRepository
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import com.yaroshevich.fishka.equipment.type.base.EmptyEquipmentDataFragment
+import com.yaroshevich.fishka.equipment.type.base.LoadingFragment
+import com.yaroshevich.fishka.equipment.type.base.RecyclerViewFragment
 
 class RodsFragment: FragmentEquipmentType() {
 
 
     lateinit var emptyRodViewModel: EmptyRodViewModel
     lateinit var rodViewModel: RodViewModel
-
-
-    val rodsAdapter = RodsAdapter()
-
-
-    override fun get(fragmentType: FragmentType): Fragment {
-       return when(fragmentType){
-           FragmentType.EMPTY -> EmptyEquipmentDataFragment(
-               emptyRodViewModel
-           )
-           FragmentType.REGULAR -> RecyclerViewFragment(
-               rodsAdapter, rodViewModel
-           )
-
-           FragmentType.LOADING -> LoadingFragment()
-       }
-    }
+    lateinit var rodsAdapter: RodsAdapter
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         emptyRodViewModel = ViewModelProvider(this).get(EmptyRodViewModel::class.java)
         rodViewModel = ViewModelProvider(this).get(RodViewModel::class.java)
-
+        rodsAdapter = RodsAdapter(BR.rod)
+        equipmentFactory = RodFactory(emptyRodViewModel, rodsAdapter, rodViewModel)
         typeViewModel = rodViewModel
         emptyRodViewModel.typeViewModel = typeViewModel
-
-
-        rodsAdapter.notifyDataSetChanged()
 
         super.onViewCreated(view, savedInstanceState)
 
@@ -55,4 +37,19 @@ class RodsFragment: FragmentEquipmentType() {
     }
 
 
+}
+
+class RodFactory(val emptyRodViewModel: EmptyRodViewModel, val rodsAdapter: RodsAdapter, val rodViewModel: RodViewModel): EquipmentFactory() {
+    override fun create(id: FragmentType): Fragment {
+        return when(id){
+            FragmentType.EMPTY -> EmptyEquipmentDataFragment(
+                emptyRodViewModel
+            )
+            FragmentType.REGULAR -> RecyclerViewFragment(
+                rodsAdapter, rodViewModel
+            )
+
+            FragmentType.LOADING -> LoadingFragment()
+        }
+    }
 }

@@ -1,10 +1,9 @@
-package com.yaroshevich.fishka.equipment.type
+package com.yaroshevich.fishka.equipment.type.base
 
 import android.os.Bundle
 import android.view.View
 import com.yaroshevich.fishka.R
 import com.yaroshevich.fishka.base.BaseFragment
-import com.yaroshevich.fishka.equipment.type.EmptyEquipmentViewModel
 import kotlinx.android.synthetic.main.fragment_if_empty_equipment_recycler_view.*
 
 class EmptyEquipmentDataFragment(val viewModel: EmptyEquipmentViewModel): BaseFragment() {

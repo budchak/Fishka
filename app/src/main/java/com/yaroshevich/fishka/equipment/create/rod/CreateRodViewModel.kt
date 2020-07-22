@@ -1,10 +1,10 @@
-package com.yaroshevich.fishka.equipment.create
+package com.yaroshevich.fishka.equipment.create.rod
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.yaroshevich.fishka.App
-import com.yaroshevich.fishka.equipment.type.rods.Rod
-import com.yaroshevich.fishka.equipment.type.rods.Test
+import com.yaroshevich.fishka.equipment.type.rods.model.Rod
+import com.yaroshevich.fishka.equipment.type.rods.model.Test
 import com.yaroshevich.fishka.navigation.Destination
 import com.yaroshevich.fishka.repository.RodRepository
 import kotlinx.coroutines.GlobalScope
@@ -43,12 +43,16 @@ class CreateRodViewModel : ViewModel() {
 
     }
 
-    private fun createRod() = Rod(
-        brand = brand,
-        model = model,
-        height = length.toInt(),
-        test = Test(min = minTest.toInt(), max = maxTest.toInt())
+    private fun createRod() =
+        Rod(
+            brand = brand,
+            model = model,
+            height = length.toInt(),
+            test = Test(
+                min = minTest.toInt(),
+                max = maxTest.toInt()
+            )
 
-    )
+        )
 
 }

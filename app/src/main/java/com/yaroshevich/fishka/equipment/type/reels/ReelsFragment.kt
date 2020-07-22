@@ -3,51 +3,47 @@ package com.yaroshevich.fishka.equipment.type.reels
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.yaroshevich.fishka.equipment.type.EmptyEquipmentDataFragment
-import com.yaroshevich.fishka.equipment.type.FragmentEquipmentType
-import com.yaroshevich.fishka.equipment.type.FragmentType
-import com.yaroshevich.fishka.equipment.type.RecyclerViewFragment
-import com.yaroshevich.fishka.equipment.type.reels.model.Reel
-import com.yaroshevich.fishka.equipment.type.rods.EmptyRodViewModel
-import com.yaroshevich.fishka.equipment.type.rods.RodViewModel
+import com.yaroshevich.fishka.BR
+import com.yaroshevich.fishka.equipment.type.*
+import com.yaroshevich.fishka.equipment.type.base.EmptyEquipmentDataFragment
+import com.yaroshevich.fishka.equipment.type.base.LoadingFragment
+import com.yaroshevich.fishka.equipment.type.base.RecyclerViewFragment
+import com.yaroshevich.fishka.equipment.type.rods.RodsAdapter
 
 class ReelsFragment : FragmentEquipmentType() {
 
-    val list = mutableListOf<Reel>()
-    val reeAdapter = ReelAdapter()
+
+    private val reelAdapter = ReelAdapter(BR.Reel)
 
     lateinit var emptyReelViewModel: EmptyReelsViewModel
     lateinit var reelViewModel: ReelsViewModel
 
-    override fun get(fragmentType: FragmentType): Fragment {
-        return when (typeViewModel.fragmentType.value) {
+    fun get(fragmentType: FragmentType): Fragment {
+        return when (fragmentType) {
            FragmentType.EMPTY-> EmptyEquipmentDataFragment(
-                emptyReelViewModel
-            )
-            else -> RecyclerViewFragment<Reel>(
-               rvAdapter =  reeAdapter,
-               typeViewModel =  reelViewModel
+               emptyReelViewModel
+           )
+            FragmentType.LOADING -> LoadingFragment()
+            FragmentType.REGULAR -> RecyclerViewFragment(
+                rvAdapter = reelAdapter,
+                typeViewModel = reelViewModel
             )
         }
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+
         emptyReelViewModel = ViewModelProvider(this).get(EmptyReelsViewModel::class.java)
         reelViewModel = ViewModelProvider(this).get(ReelsViewModel::class.java)
-        list.add(Reel("tosiba", "5000", 210))
-        list.add(Reel("tosiba", "5000", 210))
-        list.add(Reel("tosiba", "5000", 210))
-        list.add(Reel("tosiba", "5000", 210))
-        list.add(Reel("tosiba", "5000", 210))
-        list.add(Reel("tosiba", "5000", 210))
-        list.add(Reel("tosiba", "5000", 210))
-        list.add(Reel("tosiba", "5000", 210))
+        typeViewModel = reelViewModel
 
-
-        reeAdapter.items = list
-        reeAdapter.notifyDataSetChanged()
+        super.onViewCreated(view, savedInstanceState)
+        reelViewModel.reelLiveList.observe(viewLifecycleOwner, Observer {
+            reelAdapter.items = it
+            reelAdapter.notifyDataSetChanged()
+        })
     }
 }

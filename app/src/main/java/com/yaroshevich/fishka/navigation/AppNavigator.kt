@@ -11,6 +11,7 @@ class AppNavigator(val navController: NavController) {
         when (destination) {
             Destination.CREATE_ROD_SCREEN -> navigateToCreateRodScreen()
             Destination.ROD_SCREEN -> navigateToRodScreen()
+            Destination.CREATE_REEL_SCREEN -> navigateToReelScreen()
         }
     }
 
@@ -23,10 +24,16 @@ class AppNavigator(val navController: NavController) {
     private fun navigateToRodScreen(){
         navController.navigate(R.id.equipmentFragment)
     }
+
+    private fun navigateToReelScreen(){
+        navController.navigate(R.id.createReelFragment)
+    }
 }
 
 
 enum class Destination {
     CREATE_ROD_SCREEN,
+    CREATE_REEL_SCREEN,
+    CREATE_LINE_SCREEN,
     ROD_SCREEN
 }

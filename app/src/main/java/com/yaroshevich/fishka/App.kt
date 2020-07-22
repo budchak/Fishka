@@ -2,7 +2,6 @@ package com.yaroshevich.fishka
 
 import android.app.Application
 import androidx.room.Room
-import com.yaroshevich.fishka.equipment.type.rods.Rod
 import com.yaroshevich.fishka.navigation.AppNavigator
 import com.yaroshevich.fishka.room.EquipmentDatabase
 

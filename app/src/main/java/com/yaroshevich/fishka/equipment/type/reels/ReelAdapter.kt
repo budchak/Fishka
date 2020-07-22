@@ -3,27 +3,18 @@ package com.yaroshevich.fishka.equipment.type.reels
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import com.yaroshevich.fishka.R
-import com.yaroshevich.fishka.base.BaseAdapter
-import com.yaroshevich.fishka.base.BaseViewHolder
-import com.yaroshevich.fishka.base.ViewHolderFactory
+import com.yaroshevich.fishka.base.*
+import com.yaroshevich.fishka.databinding.ItemReelBinding
+import com.yaroshevich.fishka.databinding.ItemRodBinding
 import com.yaroshevich.fishka.equipment.type.reels.model.Reel
 
-class ReelAdapter: BaseAdapter<Reel>() {
-    override fun createViewHolderFactory(): ViewHolderFactory<Reel> {
-        return ReelViewHolderFactory()
+class ReelAdapter(bindingViewType: Int) : BindableAdapter(bindingViewType) {
+
+    override fun getItemViewType(position: Int): Int {
+        return R.layout.item_reel
     }
-}
 
-class ReelViewHolder(view: View): BaseViewHolder<Reel>(view) {
-    override fun bind(item: Reel) {
 
-    }
-}
-
-class ReelViewHolderFactory: ViewHolderFactory<Reel> {
-
-    override fun getViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<Reel> {
-        return ReelViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_reel, parent, false))
-    }
 }

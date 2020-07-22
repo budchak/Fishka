@@ -1,9 +1,10 @@
 package com.yaroshevich.fishka.repository
 
 import com.yaroshevich.fishka.App
-import com.yaroshevich.fishka.equipment.type.rods.Rod
-import com.yaroshevich.fishka.equipment.type.rods.Test
+import com.yaroshevich.fishka.equipment.type.rods.model.Rod
+import com.yaroshevich.fishka.equipment.type.rods.model.Test
 import com.yaroshevich.fishka.room.entities.RodEntity
+import com.yaroshevich.fishka.util.ListTypeConverter
 
 
 class RodRepository() {
@@ -13,49 +14,37 @@ class RodRepository() {
     suspend fun getAll(): List<Rod> {
         val rodEntityList = rodDao.getAll()
 
-        val result = RodEntityToRodConverter().convert(rodEntityList)
+        val result = RodEntityToRodMapper().convert(rodEntityList)
 
         return result
     }
 
     suspend fun create(rod: Rod) {
-        val entity = RodToRodEntityConverter().convert(rod)
+        val entity = RodEntityToRodMapper().reverse(rod)
         rodDao.insert(entity)
     }
 
 }
 
-class RodEntityToRodConverter {
+class RodEntityToRodMapper : ListTypeConverter<RodEntity, Rod>() {
 
 
-    fun convert(source: RodEntity) {
-        val destination = mutableListOf<Rod>()
-    }
-
-    fun convert(source: List<RodEntity>): List<Rod> {
-        val destination = mutableListOf<Rod>()
+    override fun convert(source: RodEntity): Rod {
 
 
-        source.forEach {
-            var rod = Rod(
-                brand = it.brand,
-                model = it.model,
-                height = it.length.toInt(),
-                test = Test(it.minTest, it.maxTest)
+        return Rod(
+            brand = source.brand,
+            model = source.model,
+            height = source.length.toInt(),
+            test = Test(
+                source.minTest,
+                source.maxTest
             )
-            destination.add(rod)
-        }
+        )
 
-
-        return destination
     }
 
-
-}
-
-class RodToRodEntityConverter {
-
-    fun convert(source: Rod): RodEntity {
+    override fun reverse(source: Rod): RodEntity {
         return RodEntity(
             id = 0,
             brand = source.brand,
@@ -65,5 +54,6 @@ class RodToRodEntityConverter {
             maxTest = source.test.max
         )
     }
+
 
 }

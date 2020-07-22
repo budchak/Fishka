@@ -6,7 +6,7 @@
     <data>
         <variable
             name="rodViewModel"
-            type="com.yaroshevich.fishka.equipment.create.CreateRodViewModel" />
+            type="com.yaroshevich.fishka.equipment.create.rod.CreateRodViewModel" />
 
     </data>
 

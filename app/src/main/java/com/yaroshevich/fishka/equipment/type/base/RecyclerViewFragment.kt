@@ -1,4 +1,4 @@
-package com.yaroshevich.fishka.equipment.type
+package com.yaroshevich.fishka.equipment.type.base
 
 import android.os.Bundle
 import android.view.View
@@ -7,9 +7,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.yaroshevich.fishka.R
 import com.yaroshevich.fishka.base.BaseAdapter
 import com.yaroshevich.fishka.base.BaseFragment
+import com.yaroshevich.fishka.base.BindableAdapter
 import kotlinx.android.synthetic.main.fragment_recycler_view.*
 
-class RecyclerViewFragment<T>(val rvAdapter: BaseAdapter<T>, val typeViewModel: EquipmentTypeViewModel ): BaseFragment() {
+class RecyclerViewFragment(val rvAdapter: BindableAdapter, val typeViewModel: EquipmentTypeViewModel): BaseFragment() {
 
     override fun getLayout(): Int {
         return R.layout.fragment_recycler_view

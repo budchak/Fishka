@@ -1,27 +1,27 @@
-package com.yaroshevich.fishka.equipment.type.reels
+package com.yaroshevich.fishka.equipment.type.line
 
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import com.yaroshevich.fishka.App
-import com.yaroshevich.fishka.equipment.type.base.EquipmentTypeViewModel
 import com.yaroshevich.fishka.equipment.type.FragmentType
-import com.yaroshevich.fishka.equipment.type.reels.model.Reel
+import com.yaroshevich.fishka.equipment.type.base.EquipmentTypeViewModel
 import com.yaroshevich.fishka.navigation.Destination
-import com.yaroshevich.fishka.repository.ReelRepository
+import com.yaroshevich.fishka.repository.LineRepository
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class ReelsViewModel : EquipmentTypeViewModel() {
+class LineViewModel: EquipmentTypeViewModel() {
 
-    var reelRepository = ReelRepository()
+    var lineRepository = LineRepository()
 
-    var reelLiveList = MutableLiveData<List<Reel>>()
+    var reelLiveList = MutableLiveData<List<Line>>()
 
     init {
         GlobalScope.launch {
 
             fragmentType.postValue(FragmentType.LOADING)
 
-            val result = reelRepository.getAll()
+            val result = lineRepository.getAll()
 
             reelLiveList.postValue(result)
 
@@ -37,6 +37,13 @@ class ReelsViewModel : EquipmentTypeViewModel() {
         super.onFloatingButtonClick()
         App.getInstance().appNavigator.navigate(Destination.CREATE_REEL_SCREEN)
     }
+
+}
+
+
+
+class EquipmentViewModelBuilder(val lifecycleOwner: LifecycleOwner, val clazz: Class<Any>){
+
 
 
 }

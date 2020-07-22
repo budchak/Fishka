@@ -17,6 +17,10 @@
     </fragment>
     <fragment
         android:id="@+id/createRodFragment"
-        android:name="com.yaroshevich.fishka.equipment.create.CreateRodFragment"
+        android:name="com.yaroshevich.fishka.equipment.create.rod.CreateRodFragment"
         android:label="CreateRodFragment" />
+    <fragment
+        android:id="@+id/createReelFragment"
+        android:name="com.yaroshevich.fishka.equipment.create.reel.CreateReelFragment"
+        android:label="CreateReelFragment" />
 </navigation>

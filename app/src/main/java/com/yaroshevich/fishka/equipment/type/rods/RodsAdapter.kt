@@ -5,36 +5,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.yaroshevich.fishka.R
-import com.yaroshevich.fishka.base.BaseAdapter
-import com.yaroshevich.fishka.base.BaseViewHolder
-import com.yaroshevich.fishka.base.ViewHolderFactory
+import com.yaroshevich.fishka.base.*
 import com.yaroshevich.fishka.databinding.ItemRodBinding
+import com.yaroshevich.fishka.equipment.type.rods.model.Rod
 
-class RodsAdapter: BaseAdapter<Rod>() {
-    override fun createViewHolderFactory(): ViewHolderFactory<Rod> {
-       return RodViewHolderFactory()
-    }
+class RodsAdapter (bindingType: Int): BindableAdapter(bindingType) {
 
 
-}
-
-
-class RodsViewHolder(view: View): BaseViewHolder<Rod>(view){
-
-    val binding = DataBindingUtil.bind<ItemRodBinding>(view)
-
-    override fun bind(item: Rod){
-
-        binding?.rod = item
-
-
-    }
-}
-
-class RodViewHolderFactory: ViewHolderFactory<Rod> {
-
-    override fun getViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<Rod> {
-        return RodsViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_rod, parent, false))
+    override fun getItemViewType(position: Int): Int {
+        return R.layout.item_rod
     }
 }
 
