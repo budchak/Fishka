@@ -1,4 +1,4 @@
-package com.yaroshevich.fishka.equipment.type.base
+package com.yaroshevich.fishka.equipment.type.empty.viewModel
 
 import androidx.lifecycle.ViewModel
 

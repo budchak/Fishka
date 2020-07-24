@@ -5,11 +5,11 @@
         android:icon="@drawable/rod_icon"
         android:title="снаряжение"/>
     <item
-        android:id="@+id/mainFragment"
+        android:id="@+id/creatingTrophyFragment"
         android:icon="@android:drawable/ic_dialog_dialer"
         android:title="Обновления" />
     <item
-        android:id="@+id/mainFragment1"
+        android:id="@+id/collapsingToolbarFragment"
         android:icon="@android:drawable/ic_dialog_email"
         android:title="Трофеи" />
 </menu>

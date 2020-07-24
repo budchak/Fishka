@@ -1,12 +1,13 @@
-package com.yaroshevich.fishka.equipment.type.base
+package com.yaroshevich.fishka.equipment.type.empty.fragment
 
 import android.os.Bundle
 import android.view.View
 import com.yaroshevich.fishka.R
 import com.yaroshevich.fishka.base.BaseFragment
+import com.yaroshevich.fishka.equipment.type.empty.viewModel.EmptyEquipmentViewModel
 import kotlinx.android.synthetic.main.fragment_if_empty_equipment_recycler_view.*
 
-class EmptyEquipmentDataFragment(val viewModel: EmptyEquipmentViewModel): BaseFragment() {
+ class EmptyEquipmentDataFragment(var viewModel: EmptyEquipmentViewModel): BaseFragment() {
 
 
 
@@ -23,4 +24,5 @@ class EmptyEquipmentDataFragment(val viewModel: EmptyEquipmentViewModel): BaseFr
         }
 
     }
+
 }

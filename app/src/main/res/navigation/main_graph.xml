@@ -23,4 +23,12 @@
         android:id="@+id/createReelFragment"
         android:name="com.yaroshevich.fishka.equipment.create.reel.CreateReelFragment"
         android:label="CreateReelFragment" />
+    <fragment
+        android:id="@+id/collapsingToolbarFragment"
+        android:name="com.yaroshevich.fishka.Fish.CollapsingToolbarFragment"
+        android:label="CollapsingToolbarFragment" />
+    <fragment
+        android:id="@+id/creatingTrophyFragment"
+        android:name="com.yaroshevich.fishka.Fish.CreatingTrophyFragment"
+        android:label="CreatingTrophyFragment" />
 </navigation>

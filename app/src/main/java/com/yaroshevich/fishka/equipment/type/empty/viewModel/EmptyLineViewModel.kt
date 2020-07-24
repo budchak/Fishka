@@ -1,7 +1,6 @@
-package com.yaroshevich.fishka.equipment.type.line
+package com.yaroshevich.fishka.equipment.type.empty.viewModel
 
 import com.yaroshevich.fishka.App
-import com.yaroshevich.fishka.equipment.type.base.EmptyEquipmentViewModel
 import com.yaroshevich.fishka.navigation.Destination
 
 class EmptyLineViewModel : EmptyEquipmentViewModel() {

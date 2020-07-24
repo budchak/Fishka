@@ -7,9 +7,10 @@ import androidx.lifecycle.ViewModelProvider
 import com.yaroshevich.fishka.BR
 import com.yaroshevich.fishka.equipment.type.FragmentEquipmentType
 import com.yaroshevich.fishka.equipment.type.FragmentType
-import com.yaroshevich.fishka.equipment.type.base.EmptyEquipmentDataFragment
+import com.yaroshevich.fishka.equipment.type.empty.fragment.EmptyEquipmentDataFragment
 import com.yaroshevich.fishka.equipment.type.base.LoadingFragment
 import com.yaroshevich.fishka.equipment.type.base.RecyclerViewFragment
+import com.yaroshevich.fishka.equipment.type.empty.viewModel.EmptyLineViewModel
 import com.yaroshevich.fishka.equipment.type.rods.RodsAdapter
 
 class LineFragment : FragmentEquipmentType() {

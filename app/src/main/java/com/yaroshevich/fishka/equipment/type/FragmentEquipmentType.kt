@@ -14,7 +14,7 @@ abstract class FragmentEquipmentType() : BaseFragment() {
 
     lateinit var typeViewModel: EquipmentTypeViewModel
 
-    var equipmentFactory: EquipmentFactory? = null
+    lateinit var equipmentFactory: EquipmentFactory
 
     override fun getLayout(): Int = R.layout.fragment_equipment_type_container
 
@@ -28,15 +28,11 @@ abstract class FragmentEquipmentType() : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         typeViewModel.fragmentType.observe(viewLifecycleOwner, Observer {
-            val fragment = equipmentFactory?.create(it)
-            if (fragment!= null){
 
-                childFragmentManager.
-                beginTransaction().
-                replace(R.id.container, fragment).
-                commit()
+            val fragment = equipmentFactory.create(it)
 
-            }
+            childFragmentManager.beginTransaction().replace(R.id.container, fragment).commit()
+
 
         })
 

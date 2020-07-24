@@ -7,9 +7,10 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.yaroshevich.fishka.BR
 import com.yaroshevich.fishka.equipment.type.*
-import com.yaroshevich.fishka.equipment.type.base.EmptyEquipmentDataFragment
+import com.yaroshevich.fishka.equipment.type.empty.fragment.EmptyEquipmentDataFragment
 import com.yaroshevich.fishka.equipment.type.base.LoadingFragment
 import com.yaroshevich.fishka.equipment.type.base.RecyclerViewFragment
+import com.yaroshevich.fishka.equipment.type.empty.viewModel.EmptyRodViewModel
 
 class RodsFragment: FragmentEquipmentType() {
 
@@ -28,6 +29,8 @@ class RodsFragment: FragmentEquipmentType() {
         typeViewModel = rodViewModel
         emptyRodViewModel.typeViewModel = typeViewModel
 
+        equipmentFactory  = RodFactory(emptyRodViewModel, rodsAdapter, rodViewModel)
+
         super.onViewCreated(view, savedInstanceState)
 
         rodViewModel.rodLiveList.observe(viewLifecycleOwner, Observer {
@@ -39,11 +42,13 @@ class RodsFragment: FragmentEquipmentType() {
 
 }
 
-class RodFactory(val emptyRodViewModel: EmptyRodViewModel, val rodsAdapter: RodsAdapter, val rodViewModel: RodViewModel): EquipmentFactory() {
+class RodFactory(val emptyRodViewModel: EmptyRodViewModel,
+                 val rodsAdapter: RodsAdapter,
+                 val rodViewModel: RodViewModel): EquipmentFactory() {
     override fun create(id: FragmentType): Fragment {
         return when(id){
-            FragmentType.EMPTY -> EmptyEquipmentDataFragment(
-                emptyRodViewModel
+            FragmentType.EMPTY -> EmptyEquipmentDataFragment(emptyRodViewModel
+
             )
             FragmentType.REGULAR -> RecyclerViewFragment(
                 rodsAdapter, rodViewModel

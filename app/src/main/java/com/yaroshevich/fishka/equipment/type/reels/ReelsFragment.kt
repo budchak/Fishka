@@ -7,10 +7,10 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.yaroshevich.fishka.BR
 import com.yaroshevich.fishka.equipment.type.*
-import com.yaroshevich.fishka.equipment.type.base.EmptyEquipmentDataFragment
+import com.yaroshevich.fishka.equipment.type.empty.fragment.EmptyEquipmentDataFragment
 import com.yaroshevich.fishka.equipment.type.base.LoadingFragment
 import com.yaroshevich.fishka.equipment.type.base.RecyclerViewFragment
-import com.yaroshevich.fishka.equipment.type.rods.RodsAdapter
+import com.yaroshevich.fishka.equipment.type.empty.viewModel.EmptyReelsViewModel
 
 class ReelsFragment : FragmentEquipmentType() {
 
@@ -39,11 +39,17 @@ class ReelsFragment : FragmentEquipmentType() {
         emptyReelViewModel = ViewModelProvider(this).get(EmptyReelsViewModel::class.java)
         reelViewModel = ViewModelProvider(this).get(ReelsViewModel::class.java)
         typeViewModel = reelViewModel
-
+        equipmentFactory = ReelFactory()
         super.onViewCreated(view, savedInstanceState)
         reelViewModel.reelLiveList.observe(viewLifecycleOwner, Observer {
             reelAdapter.items = it
             reelAdapter.notifyDataSetChanged()
         })
+    }
+}
+
+class ReelFactory: EquipmentFactory() {
+    override fun create(id: FragmentType): Fragment {
+        return LoadingFragment()
     }
 }
