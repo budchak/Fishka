@@ -3,7 +3,7 @@ package com.yaroshevich.fishka.equipment.type.rods
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.yaroshevich.fishka.App
-import com.yaroshevich.fishka.base.ItemCLickListener
+import com.yaroshevich.fishka.adapters.ItemCLickListener
 import com.yaroshevich.fishka.equipment.type.base.EquipmentTypeViewModel
 import com.yaroshevich.fishka.equipment.type.FragmentType
 import com.yaroshevich.fishka.equipment.type.rods.model.Rod
@@ -13,12 +13,11 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 
-class RodViewModel : EquipmentTypeViewModel(), ItemCLickListener {
+class RodViewModel : EquipmentTypeViewModel(),
+    ItemCLickListener {
 
 
     var rodRepository = RodRepository()
-
-    var rodLiveList = MutableLiveData<List<Rod>>()
 
     init {
 
@@ -26,7 +25,7 @@ class RodViewModel : EquipmentTypeViewModel(), ItemCLickListener {
         GlobalScope.launch {
             fragmentType.postValue(FragmentType.LOADING)
             val result = rodRepository.getAll()
-            rodLiveList.postValue(result)
+            liveList.postValue(result)
             if (result.isNotEmpty()) {
                 fragmentType.postValue(FragmentType.REGULAR)
             } else {
@@ -47,6 +46,7 @@ class RodViewModel : EquipmentTypeViewModel(), ItemCLickListener {
 
     override fun onClick(id: Int) {
         Log.e("tag", "click")
+        App.getInstance().appNavigator.navigateToCreateRodScreen(id)
     }
 
 }

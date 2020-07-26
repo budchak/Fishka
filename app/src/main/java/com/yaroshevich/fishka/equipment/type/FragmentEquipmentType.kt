@@ -9,11 +9,13 @@ import androidx.lifecycle.ViewModelProvider
 import com.yaroshevich.fishka.R
 import com.yaroshevich.fishka.base.BaseFragment
 import com.yaroshevich.fishka.equipment.type.base.EquipmentTypeViewModel
+import javax.inject.Inject
 
 abstract class FragmentEquipmentType() : BaseFragment() {
 
     lateinit var typeViewModel: EquipmentTypeViewModel
 
+    @Inject
     lateinit var equipmentFactory: EquipmentFactory
 
     override fun getLayout(): Int = R.layout.fragment_equipment_type_container
@@ -42,7 +44,7 @@ abstract class FragmentEquipmentType() : BaseFragment() {
 
 
 abstract class EquipmentFactory {
-    abstract fun create(id: FragmentType): Fragment
+    abstract fun create(fragmentType: FragmentType): Fragment
 }
 
 enum class FragmentType {

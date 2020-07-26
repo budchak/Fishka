@@ -5,13 +5,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.yaroshevich.fishka.R
-import com.yaroshevich.fishka.base.BaseAdapter
-import com.yaroshevich.fishka.base.BaseViewHolder
-import com.yaroshevich.fishka.base.ItemCLickListener
-import com.yaroshevich.fishka.base.ViewHolderFactory
+import com.yaroshevich.fishka.adapters.BaseAdapter
+import com.yaroshevich.fishka.adapters.BaseViewHolder
+import com.yaroshevich.fishka.adapters.ItemCLickListener
+import com.yaroshevich.fishka.adapters.ViewHolderFactory
 import com.yaroshevich.fishka.databinding.ItemLineBinding
-import com.yaroshevich.fishka.databinding.ItemReelBinding
-import com.yaroshevich.fishka.equipment.type.reels.model.Reel
 
 class LineAdapter : BaseAdapter<Line>() {
 
@@ -28,7 +26,8 @@ class LineAdapter : BaseAdapter<Line>() {
         }
     }
 
-    class LineViewHolderFactory : ViewHolderFactory<Line> {
+    class LineViewHolderFactory :
+        ViewHolderFactory<Line> {
 
         override fun getViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<Line> {
             return LineViewHolder(

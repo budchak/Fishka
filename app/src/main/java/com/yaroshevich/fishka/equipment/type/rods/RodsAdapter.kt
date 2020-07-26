@@ -1,16 +1,18 @@
 package com.yaroshevich.fishka.equipment.type.rods
 
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
+import com.yaroshevich.fishka.BR
 import com.yaroshevich.fishka.R
-import com.yaroshevich.fishka.base.*
-import com.yaroshevich.fishka.databinding.ItemRodBinding
-import com.yaroshevich.fishka.equipment.type.rods.model.Rod
+import com.yaroshevich.fishka.adapters.BindableAdapter
+import com.yaroshevich.fishka.adapters.BindableViewHolder
+import com.yaroshevich.fishka.adapters.ItemCLickListener
 
-class RodsAdapter (bindingType: Int): BindableAdapter(bindingType) {
+class RodsAdapter (bindingType: Int, var itemCLickListener: ItemCLickListener): BindableAdapter(bindingType) {
 
+    override fun onBindViewHolder(holder: BindableViewHolder, position: Int) {
+        super.onBindViewHolder(holder, position)
+
+        holder.binding?.setVariable(BR.clickListener, itemCLickListener)
+    }
 
     override fun getItemViewType(position: Int): Int {
         return R.layout.item_rod

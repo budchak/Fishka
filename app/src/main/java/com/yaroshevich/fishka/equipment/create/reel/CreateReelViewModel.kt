@@ -22,7 +22,7 @@ class CreateReelViewModel : ViewModel() {
 
     fun onApplyClick() {
         saveReel()
-        App.getInstance().appNavigator.navigate(Destination.ROD_SCREEN)
+        App.getInstance().appNavigator.navigate(Destination.EQUIPMENT_SCREEN)
     }
 
     private fun saveReel() {

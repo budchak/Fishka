@@ -1,6 +1,7 @@
 package com.yaroshevich.fishka.equipment.create.rod
 
 import android.util.Log
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.yaroshevich.fishka.App
 import com.yaroshevich.fishka.equipment.type.rods.model.Rod
@@ -14,12 +15,13 @@ class CreateRodViewModel : ViewModel() {
 
     val rodRepository = RodRepository()
 
-    var brand = ""
-    var model = ""
-    var length = ""
-    var minTest = ""
-    var maxTest = ""
+    var brand = MutableLiveData<String>("")
+    var model = MutableLiveData<String>("")
+    var length = MutableLiveData<String>("")
+    var minTest = MutableLiveData<String>("")
+    var maxTest = MutableLiveData<String>("")
 
+    var id = 0
 
     fun onApplyClick() {
         Log.i(
@@ -29,28 +31,44 @@ class CreateRodViewModel : ViewModel() {
 
         saveRod()
 
-        App.getInstance().appNavigator.navigate(Destination.ROD_SCREEN)
+        App.getInstance().appNavigator.navigate(Destination.EQUIPMENT_SCREEN)
 
 
     }
 
+    fun load(id: Int) {
+        this.id = id
+        GlobalScope.launch {
+            val rod = rodRepository.getById(id)
+            brand.postValue(rod.brand)
+            model.postValue(rod.model)
+            length.postValue(rod.height.toString())
+            minTest.postValue(rod.test.min.toString())
+            maxTest.postValue(rod.test.max.toString())
+        }
+    }
 
     private fun saveRod() {
         val rod = createRod()
         GlobalScope.launch {
-            rodRepository.create(rod)
+            if (id == 0){
+                rodRepository.create(rod)
+            }else{
+                rodRepository.update(rod)
+            }
+
         }
 
     }
 
-    private fun createRod() =
-        Rod(
-            brand = brand,
-            model = model,
-            height = length.toInt(),
+    private fun createRod() = Rod(
+            id = id,
+            brand = brand.value!!,
+            model = model.value!!,
+            height = length.value!!.toInt(),
             test = Test(
-                min = minTest.toInt(),
-                max = maxTest.toInt()
+                min = minTest.value!!.toInt(),
+                max = maxTest.value!!.toInt()
             )
 
         )

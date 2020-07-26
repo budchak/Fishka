@@ -1,7 +1,9 @@
 package com.yaroshevich.fishka.di.component
 
 import com.yaroshevich.fishka.Fish.CreatingTrophyFragment
+import com.yaroshevich.fishka.di.module.AppFunctionModule
 import com.yaroshevich.fishka.di.module.AppModule
+import com.yaroshevich.fishka.di.module.EquipmentModule
 import dagger.BindsInstance
 import dagger.Component
 
@@ -16,4 +18,6 @@ interface AppComponent {
 
 
     fun inject(fragment: CreatingTrophyFragment)
+    fun plus(appFunctionModule: AppFunctionModule): AppFunctionComponent
+    fun plus(equipmentModule: EquipmentModule): EquipmentComponent
 }

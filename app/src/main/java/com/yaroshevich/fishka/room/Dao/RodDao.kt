@@ -11,7 +11,7 @@ interface RodDao {
     suspend fun getAll(): List<RodEntity>
 
     @Query("SELECT * FROM rodentity WHERE id = :rodID")
-    suspend fun getById(rodID: Int): RodEntity
+    suspend fun getById(rodID: Int): RodEntity?
 
     @Insert
     suspend  fun insert(panel: RodEntity)

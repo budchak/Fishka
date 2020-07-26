@@ -1,5 +1,6 @@
 package com.yaroshevich.fishka.repository
 
+import android.util.Log
 import com.yaroshevich.fishka.App
 import com.yaroshevich.fishka.equipment.type.rods.model.Rod
 import com.yaroshevich.fishka.equipment.type.rods.model.Test
@@ -19,9 +20,29 @@ class RodRepository() {
         return result
     }
 
+    suspend fun getById(id: Int): Rod{
+        val rodEntity = rodDao.getById(id)
+        if (rodEntity != null) {
+
+            return RodEntityToRodMapper().convert(rodEntity)
+        }
+
+        return Rod()
+    }
+
     suspend fun create(rod: Rod) {
         val entity = RodEntityToRodMapper().reverse(rod)
-        rodDao.insert(entity)
+
+            Log.e("insert","${entity.id}")
+            rodDao.insert(entity)
+
+
+    }
+
+    suspend fun update(rod: Rod){
+        val entity = RodEntityToRodMapper().reverse(rod)
+        rodDao.update(entity)
+        Log.e("Update","${entity.id}")
     }
 
 }
@@ -33,6 +54,7 @@ class RodEntityToRodMapper : ListTypeConverter<RodEntity, Rod>() {
 
 
         return Rod(
+            id = source.id,
             brand = source.brand,
             model = source.model,
             height = source.length.toInt(),
@@ -46,7 +68,7 @@ class RodEntityToRodMapper : ListTypeConverter<RodEntity, Rod>() {
 
     override fun reverse(source: Rod): RodEntity {
         return RodEntity(
-            id = 0,
+            id = source.id,
             brand = source.brand,
             model = source.model,
             length = source.height.toString(),

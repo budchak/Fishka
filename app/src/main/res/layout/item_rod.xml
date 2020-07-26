@@ -6,6 +6,9 @@
         <variable
             name="rod"
             type="com.yaroshevich.fishka.equipment.type.rods.model.Rod" />
+        <variable
+            name="clickListener"
+            type="com.yaroshevich.fishka.adapters.ItemCLickListener" />
     </data>
 
     <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -16,7 +19,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:onClick="@{() -> clickListener.onClick(rod.id)}">
 
             <ImageView
                 android:id="@+id/imageView"

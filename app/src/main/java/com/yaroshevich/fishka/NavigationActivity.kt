@@ -19,9 +19,6 @@ class NavigationActivity : BaseActivity() {
         setContentView(R.layout.activity_main)
 
         navController = Navigation.findNavController(this, R.id.nav_host_fragment)
-
-        NavigationUI.setupWithNavController(navigationView, navController)
-
         App.getInstance().appNavigator = AppNavigator(navController)
 
 

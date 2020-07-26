@@ -7,8 +7,7 @@ import com.yaroshevich.fishka.base.BaseFragment
 import com.yaroshevich.fishka.equipment.type.empty.viewModel.EmptyEquipmentViewModel
 import kotlinx.android.synthetic.main.fragment_if_empty_equipment_recycler_view.*
 
- class EmptyEquipmentDataFragment(var viewModel: EmptyEquipmentViewModel): BaseFragment() {
-
+class EmptyEquipmentDataFragment(var viewModel: EmptyEquipmentViewModel): BaseFragment() {
 
 
     override fun getLayout(): Int {

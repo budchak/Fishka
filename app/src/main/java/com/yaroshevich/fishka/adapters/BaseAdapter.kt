@@ -1,8 +1,7 @@
-package com.yaroshevich.fishka.base
+package com.yaroshevich.fishka.adapters
 
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowId
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView

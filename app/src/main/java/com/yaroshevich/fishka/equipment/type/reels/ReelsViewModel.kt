@@ -14,8 +14,6 @@ class ReelsViewModel : EquipmentTypeViewModel() {
 
     var reelRepository = ReelRepository()
 
-    var reelLiveList = MutableLiveData<List<Reel>>()
-
     init {
         GlobalScope.launch {
 
@@ -23,7 +21,7 @@ class ReelsViewModel : EquipmentTypeViewModel() {
 
             val result = reelRepository.getAll()
 
-            reelLiveList.postValue(result)
+            liveList.postValue(result)
 
             if (result.isNotEmpty()) {
                 fragmentType.postValue(FragmentType.REGULAR)

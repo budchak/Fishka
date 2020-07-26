@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/main_graph"
-    app:startDestination="@id/equipmentFragment">
+    app:startDestination="@id/appFunctionFragment">
 
     <fragment
         android:id="@+id/mainFragment"
@@ -31,4 +31,8 @@
         android:id="@+id/creatingTrophyFragment"
         android:name="com.yaroshevich.fishka.Fish.CreatingTrophyFragment"
         android:label="CreatingTrophyFragment" />
+    <fragment
+        android:id="@+id/appFunctionFragment"
+        android:name="com.yaroshevich.fishka.appFunction.AppFunctionFragment"
+        android:label="AppFunctionFragment" />
 </navigation>

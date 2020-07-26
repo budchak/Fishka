@@ -12,24 +12,10 @@
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="48dp"
         app:defaultNavHost="true"
-        app:layout_constraintBottom_toTopOf="@+id/navigationView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/main_graph" />
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navigationView"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        app:itemIconTint="@color/cardview_light_background"
-        app:itemTextColor="@color/cardview_light_background"
-        app:layout_constraintBottom_toBottomOf="parent"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_nav" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
