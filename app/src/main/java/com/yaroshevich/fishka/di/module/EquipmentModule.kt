@@ -1,5 +1,7 @@
 package com.yaroshevich.fishka.di.module
 
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.MutableLiveData
 import com.yaroshevich.fishka.di.spore.FragmentSpore
 import com.yaroshevich.fishka.equipment.EquipmentTypeSwitchFragment
 import com.yaroshevich.fishka.equipment.viewPagerAdapter.EquipmentPagerAdapter
@@ -16,4 +18,6 @@ class EquipmentModule(val fragment: EquipmentTypeSwitchFragment) {
     fun provideEquipmentPageAdapter(): EquipmentPagerAdapter{
         return EquipmentPagerAdapter(fragment.childFragmentManager, 4)
     }
+
+
 }

@@ -6,7 +6,9 @@ import com.yaroshevich.fishka.di.module.AppModule
 import com.yaroshevich.fishka.di.module.EquipmentModule
 import dagger.BindsInstance
 import dagger.Component
+import javax.inject.Singleton
 
+@Singleton
 @Component(modules = [AppModule::class])
 interface AppComponent {
 

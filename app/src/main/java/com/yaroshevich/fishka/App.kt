@@ -20,10 +20,12 @@ class App : Application() {
     lateinit var database: EquipmentDatabase
 
     val appComponent: AppComponent by lazy {
-       DaggerAppComponent.factory().create()
+        DaggerAppComponent.factory().create()
     }
 
-   lateinit var appFunctionComponent: AppFunctionComponent
+    var position = 3
+
+    lateinit var appFunctionComponent: AppFunctionComponent
 
     lateinit var equipmentComponent: EquipmentComponent
 
@@ -40,11 +42,12 @@ class App : Application() {
     }
 
 
-    fun initFunctionComponent(fragment: AppFunctionFragment){
+    fun initFunctionComponent(fragment: AppFunctionFragment) {
         appFunctionComponent = appComponent.plus(AppFunctionModule(fragment))
     }
 
-    fun initEquipmentComponent(fragment: EquipmentTypeSwitchFragment): EquipmentComponent{
+    fun initEquipmentComponent(fragment: EquipmentTypeSwitchFragment): EquipmentComponent {
+
         equipmentComponent = appComponent.plus(EquipmentModule(fragment))
         return equipmentComponent
     }
