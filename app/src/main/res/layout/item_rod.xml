@@ -5,15 +5,16 @@
     <data>
         <variable
             name="rod"
-            type="com.yaroshevich.fishka.equipment.type.rods.model.Rod" />
+            type="com.yaroshevich.fishka.model.Rod" />
         <variable
             name="clickListener"
-            type="com.yaroshevich.fishka.adapters.ItemCLickListener" />
+            type="com.yaroshevich.fishka.equipmentRV.itemClickListener.ItemCLickListener" />
     </data>
 
     <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/card_view"
+        app:cardCornerRadius="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 

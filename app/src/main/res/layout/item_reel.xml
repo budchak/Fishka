@@ -6,7 +6,7 @@
     <data>
         <variable
             name="Reel"
-            type="com.yaroshevich.fishka.equipment.type.reels.model.Reel" />
+            type="com.yaroshevich.fishka.model.Reel" />
     </data>
 
     <androidx.cardview.widget.CardView

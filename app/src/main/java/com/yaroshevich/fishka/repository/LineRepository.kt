@@ -1,6 +1,6 @@
 package com.yaroshevich.fishka.repository
 
-import com.yaroshevich.fishka.equipment.type.line.Line
+import com.yaroshevich.fishka.model.Line
 
 class LineRepository {
 

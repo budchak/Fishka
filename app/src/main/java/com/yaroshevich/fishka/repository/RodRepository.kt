@@ -2,17 +2,17 @@ package com.yaroshevich.fishka.repository
 
 import android.util.Log
 import com.yaroshevich.fishka.App
-import com.yaroshevich.fishka.equipment.type.rods.model.Rod
-import com.yaroshevich.fishka.equipment.type.rods.model.Test
+import com.yaroshevich.fishka.model.Rod
+import com.yaroshevich.fishka.model.Test
 import com.yaroshevich.fishka.room.entities.RodEntity
 import com.yaroshevich.fishka.util.ListTypeConverter
 
 
-class RodRepository() {
+class RodRepository : EquipmentRepository<Rod> {
 
     var rodDao = App.getInstance().database.rodDao()
 
-    suspend fun getAll(): List<Rod> {
+    override suspend fun getAll(): List<Rod> {
         val rodEntityList = rodDao.getAll()
 
         val result = RodEntityToRodMapper().convert(rodEntityList)
@@ -20,7 +20,7 @@ class RodRepository() {
         return result
     }
 
-    suspend fun getById(id: Int): Rod{
+    override suspend fun getBy(id: Int): Rod {
         val rodEntity = rodDao.getById(id)
         if (rodEntity != null) {
 
@@ -30,19 +30,28 @@ class RodRepository() {
         return Rod()
     }
 
-    suspend fun create(rod: Rod) {
+    override suspend fun create(rod: Rod) {
         val entity = RodEntityToRodMapper().reverse(rod)
 
-            Log.e("insert","${entity.id}")
-            rodDao.insert(entity)
+        Log.e("insert", "${entity.id}")
+        rodDao.insert(entity)
 
 
     }
 
-    suspend fun update(rod: Rod){
+    override suspend fun update(rod: Rod) {
         val entity = RodEntityToRodMapper().reverse(rod)
         rodDao.update(entity)
-        Log.e("Update","${entity.id}")
+        Log.e("Update", "${entity.id}")
+    }
+
+    override suspend fun getAll(id: Int): List<Rod> {
+        return mutableListOf()
+    }
+
+
+    override suspend fun delete(entity: Rod) {
+
     }
 
 }

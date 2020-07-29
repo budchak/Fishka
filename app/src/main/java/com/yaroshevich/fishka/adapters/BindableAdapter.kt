@@ -8,6 +8,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.dynamicanimation.animation.SpringAnimation
 import androidx.dynamicanimation.animation.SpringForce
 import androidx.recyclerview.widget.RecyclerView
+import java.lang.ClassCastException
 
 open class BindableAdapter(val bindingType: Int): RecyclerView.Adapter<BindableViewHolder>() {
 
@@ -27,7 +28,12 @@ open class BindableAdapter(val bindingType: Int): RecyclerView.Adapter<BindableV
     override fun getItemCount(): Int  = items.size
 
     override fun onBindViewHolder(holder: BindableViewHolder, position: Int) {
+
         holder.binding?.setVariable(bindingType, items[position])
+
+
+
+
     }
 }
 

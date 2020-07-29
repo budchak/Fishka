@@ -32,7 +32,7 @@ class AppNavigator(val navController: NavController) {
     }
 
     private fun navigateToRodScreen(){
-        navController.navigate(R.id.equipmentFragment)
+        navController.navigate(R.id.equipmentFragment2)
     }
 
     private fun navigateToReelScreen(){

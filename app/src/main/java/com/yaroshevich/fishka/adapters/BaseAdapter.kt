@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
+import com.yaroshevich.fishka.equipmentRV.itemClickListener.ItemCLickListener
 
 abstract class BaseAdapter<T> : RecyclerView.Adapter<BaseViewHolder<T>>() {
 
@@ -48,10 +49,5 @@ interface ViewHolderFactory<T> {
     fun getViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<T>
 }
 
-interface ItemCLickListener{
 
-    fun onClick(id: Int)
-
-
-}
 
