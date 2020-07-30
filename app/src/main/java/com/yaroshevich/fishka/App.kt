@@ -9,7 +9,7 @@ import com.yaroshevich.fishka.di.component.DaggerAppComponent
 import com.yaroshevich.fishka.di.component.EquipmentComponent
 import com.yaroshevich.fishka.di.module.AppFunctionModule
 import com.yaroshevich.fishka.di.module.EquipmentModule
-import com.yaroshevich.fishka.equipmentRV.EquipmentFragment
+import com.yaroshevich.fishka.equipment.EquipmentFragment
 import com.yaroshevich.fishka.navigation.AppNavigator
 import com.yaroshevich.fishka.room.EquipmentDatabase
 

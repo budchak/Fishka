@@ -17,11 +17,11 @@
     </fragment>
     <fragment
         android:id="@+id/createRodFragment"
-        android:name="com.yaroshevich.fishka.equipmentRV.create.rod.CreateRodFragment"
+        android:name="com.yaroshevich.fishka.equipment.create.rod.CreateRodFragment"
         android:label="CreateRodFragment" />
     <fragment
         android:id="@+id/createReelFragment"
-        android:name="com.yaroshevich.fishka.equipmentRV.create.reel.CreateReelFragment"
+        android:name="com.yaroshevich.fishka.equipment.create.reel.CreateReelFragment"
         android:label="CreateReelFragment" />
     <fragment
         android:id="@+id/collapsingToolbarFragment"
@@ -37,6 +37,6 @@
         android:label="AppFunctionFragment" />
     <fragment
         android:id="@+id/equipmentFragment2"
-        android:name="com.yaroshevich.fishka.equipmentRV.EquipmentFragment"
+        android:name="com.yaroshevich.fishka.equipment.EquipmentFragment"
         android:label="EquipmentFragment" />
 </navigation>

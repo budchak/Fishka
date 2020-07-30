@@ -1,4 +1,4 @@
-package com.yaroshevich.fishka.equipmentRV.create.rod
+package com.yaroshevich.fishka.equipment.create.rod
 
 import android.os.Bundle
 import android.view.View

@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
-import com.yaroshevich.fishka.equipmentRV.itemClickListener.ItemCLickListener
+import com.yaroshevich.fishka.equipment.itemClickListener.ItemCLickListener
 
 abstract class BaseAdapter<T> : RecyclerView.Adapter<BaseViewHolder<T>>() {
 

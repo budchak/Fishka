@@ -1,4 +1,4 @@
-package com.yaroshevich.fishka.equipmentRV
+package com.yaroshevich.fishka.equipment
 
 import android.graphics.Rect
 import android.view.View

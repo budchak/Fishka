@@ -1,9 +1,9 @@
-package com.yaroshevich.fishka.equipmentRV
+package com.yaroshevich.fishka.equipment
 
 import com.yaroshevich.fishka.BR
 import com.yaroshevich.fishka.R
-import com.yaroshevich.fishka.equipmentRV.itemClickListener.ReelClickListener
-import com.yaroshevich.fishka.equipmentRV.itemClickListener.RodClickListener
+import com.yaroshevich.fishka.equipment.itemClickListener.ReelClickListener
+import com.yaroshevich.fishka.equipment.itemClickListener.RodClickListener
 import com.yaroshevich.fishka.repository.ReelRepository
 import com.yaroshevich.fishka.repository.RodRepository
 

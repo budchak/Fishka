@@ -6,7 +6,7 @@
     <data>
         <variable
             name="itemClickListener"
-            type="com.yaroshevich.fishka.equipmentRV.itemClickListener.ItemCLickListener" />
+            type="com.yaroshevich.fishka.equipment.itemClickListener.ItemCLickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

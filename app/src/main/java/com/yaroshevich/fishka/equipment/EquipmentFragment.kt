@@ -1,4 +1,4 @@
-package com.yaroshevich.fishka.equipmentRV
+package com.yaroshevich.fishka.equipment
 
 import android.os.Bundle
 import android.view.View

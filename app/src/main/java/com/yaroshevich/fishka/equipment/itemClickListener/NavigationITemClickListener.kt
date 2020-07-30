@@ -1,7 +1,6 @@
-package com.yaroshevich.fishka.equipmentRV.itemClickListener
+package com.yaroshevich.fishka.equipment.itemClickListener
 
 import com.yaroshevich.fishka.App
-import com.yaroshevich.fishka.navigation.AppNavigator
 
 abstract class NavigationITemClickListener: ItemCLickListener {
 

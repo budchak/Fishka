@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.yaroshevich.fishka.equipmentRV.create.reel.CreateReelViewModel" />
+            type="com.yaroshevich.fishka.equipment.create.reel.CreateReelViewModel" />
 
     </data>
 

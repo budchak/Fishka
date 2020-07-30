@@ -1,9 +1,9 @@
-package com.yaroshevich.fishka.equipmentRV
+package com.yaroshevich.fishka.equipment
 
 import androidx.lifecycle.MutableLiveData
 import com.yaroshevich.fishka.R
-import com.yaroshevich.fishka.equipmentRV.itemClickListener.ReelClickListener
-import com.yaroshevich.fishka.equipmentRV.itemClickListener.RodClickListener
+import com.yaroshevich.fishka.equipment.itemClickListener.ReelClickListener
+import com.yaroshevich.fishka.equipment.itemClickListener.RodClickListener
 import com.yaroshevich.fishka.repository.EquipmentRepository
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -26,12 +26,12 @@ class EquipmentViewModel(val eqFactory: EquipmentTypeDPFactory) {
         GlobalScope.launch {
             val result = eqDp.equipmentRepository.getAll()
             if (result.isEmpty()) {
-                showActionButton(true)
+                showActionButton(false)
                 val adapter = createEmptyListAdapter(type)
                 equipmentAdapter.postValue(adapter)
 
             } else {
-                showActionButton(false)
+                showActionButton(true)
                 eqDp.equipmentAdapter.items = result
                 equipmentAdapter.postValue(eqDp.equipmentAdapter)
             }

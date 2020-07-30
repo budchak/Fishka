@@ -1,4 +1,4 @@
-package com.yaroshevich.fishka.equipmentRV.create
+package com.yaroshevich.fishka.equipment.create
 
 import android.view.LayoutInflater
 import android.view.View
@@ -41,4 +41,4 @@ class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 }
 
 
-class BindingItem(val layoutId: Int, val bindingId: Int, val viewModel: ViewModel)
+class BindingItem(val layoutId: Int, val bindingId: Int, val viewModel: Any)

@@ -1,4 +1,4 @@
-package com.yaroshevich.fishka.equipmentRV.create.reel
+package com.yaroshevich.fishka.equipment.create.reel
 
 import androidx.lifecycle.ViewModel
 import com.yaroshevich.fishka.App

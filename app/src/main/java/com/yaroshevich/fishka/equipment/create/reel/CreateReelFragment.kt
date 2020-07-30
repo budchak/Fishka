@@ -1,4 +1,4 @@
-package com.yaroshevich.fishka.equipmentRV.create.reel
+package com.yaroshevich.fishka.equipment.create.reel
 
 import android.os.Bundle
 import android.view.View

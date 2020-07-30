@@ -1,4 +1,4 @@
-package com.yaroshevich.fishka.equipmentRV.itemClickListener
+package com.yaroshevich.fishka.equipment.itemClickListener
 
 import com.yaroshevich.fishka.navigation.Destination
 

@@ -1,10 +1,9 @@
-package com.yaroshevich.fishka.equipmentRV
+package com.yaroshevich.fishka.equipment
 
 import com.yaroshevich.fishka.BR
-import com.yaroshevich.fishka.R
 import com.yaroshevich.fishka.adapters.BindableAdapter
 import com.yaroshevich.fishka.adapters.BindableViewHolder
-import com.yaroshevich.fishka.equipmentRV.itemClickListener.ItemCLickListener
+import com.yaroshevich.fishka.equipment.itemClickListener.ItemCLickListener
 
 
 class EquipmentAdapter(bindType: Int, val viewType: Int, var itemCLickListener: ItemCLickListener? = null): BindableAdapter(bindType) {

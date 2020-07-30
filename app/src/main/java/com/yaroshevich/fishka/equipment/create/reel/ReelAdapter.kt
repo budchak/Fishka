@@ -1,9 +1,9 @@
-package com.yaroshevich.fishka.equipmentRV.create.reel
+package com.yaroshevich.fishka.equipment.create.reel
 
 import com.yaroshevich.fishka.BR
 import com.yaroshevich.fishka.R
-import com.yaroshevich.fishka.equipmentRV.create.BindingItem
-import com.yaroshevich.fishka.equipmentRV.create.CreateEquipmentAdapter
+import com.yaroshevich.fishka.equipment.create.BindingItem
+import com.yaroshevich.fishka.equipment.create.CreateEquipmentAdapter
 
 class ReelAdapter(val viewModel: CreateReelViewModel) : CreateEquipmentAdapter() {
 
