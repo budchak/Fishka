@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/main_graph"
+    app:startDestination="@id/appFunctionFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.yaroshevich.fishka.main.MainFragment"
+        android:label="MainFragment" />
+    <fragment
+        android:id="@+id/equipmentFragment"
+        android:name="com.yaroshevich.fishka.equipment.EquipmentTypeSwitchFragment"
+        android:label="EquipmentFragment" >
+        <action
+            android:id="@+id/action_equipmentFragment_to_createRodFragment"
+            app:destination="@id/createRodFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createRodFragment"
+        android:name="com.yaroshevich.fishka.equipment.create.rod.CreateRodFragment"
+        android:label="CreateRodFragment" />
+    <fragment
+        android:id="@+id/createReelFragment"
+        android:name="com.yaroshevich.fishka.equipment.create.reel.CreateReelFragment"
+        android:label="CreateReelFragment" />
+    <fragment
+        android:id="@+id/collapsingToolbarFragment"
+        android:name="com.yaroshevich.fishka.Fish.CollapsingToolbarFragment"
+        android:label="CollapsingToolbarFragment" />
+    <fragment
+        android:id="@+id/creatingTrophyFragment"
+        android:name="com.yaroshevich.fishka.Fish.CreatingTrophyFragment"
+        android:label="CreatingTrophyFragment" />
+    <fragment
+        android:id="@+id/appFunctionFragment"
+        android:name="com.yaroshevich.fishka.appFunction.AppFunctionFragment"
+        android:label="AppFunctionFragment" />
+    <fragment
+        android:id="@+id/equipmentFragment2"
+        android:name="com.yaroshevich.fishka.equipment.EquipmentFragment"
+        android:label="EquipmentFragment" />
+</navigation>
